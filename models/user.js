@@ -38,6 +38,7 @@ exports.create = function(user){
 exports.authenticate = function(user){
   return new Promise(function(resolve, reject){
     console.log("in promise : " + user.username)
+      console.log(typeof user.password)
     User.findOne({
       username : user.username,
       password : crypto.createHash("md5").update(user.password).digest("hex")

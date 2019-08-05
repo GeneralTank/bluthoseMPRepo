@@ -23,8 +23,8 @@ router.use(urlencoder)
 router.post("/register", (req, res)=>{
   console.log("POST /user/register")
   var user = {
-    username : req.body.username,
-    password : req.body.password
+    username : req.body.username1,
+    password : req.body.password1
   }
 
   User.create(user).then((user)=>{
@@ -49,7 +49,7 @@ router.post("/login", (req, res)=>{
     password : req.body.password
   }
   console.log("post login " + req.body.username)
-  console.log("post login " + user)
+  console.log("post login " + user.password)
 
   User.authenticate(user).then((newUser)=>{
     console.log("authenticate " + newUser)
@@ -62,7 +62,7 @@ router.post("/login", (req, res)=>{
       })
     }
   }, (error)=>{
-    res.render("index",{
+    res.render("home",{
       error : "some error in logging in: " + error
     })
   })
