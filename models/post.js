@@ -81,3 +81,15 @@ exports.delete = function(id){
     })
   })
 }
+
+exports.upvote = function(){
+    
+    
+    
+}
+
+exports.downvote = function(){
+    
+    
+    
+}

@@ -68,5 +68,15 @@ router.post("/login", (req, res)=>{
   })
 })
 
+router.get('/logout', function(req, resp){
+  if(req.session.user === undefined){
+    resp.redirect('/?login=unlogged');
+  }else{
+    req.session.destroy(function(err) {
+      resp.redirect('/');
+    });
+  }
+}); 
+
 // always remember to export the router for index.js
 module.exports = router
