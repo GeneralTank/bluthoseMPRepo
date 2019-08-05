@@ -1,61 +1,60 @@
 <html>
 
-  <head>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
-        
-          <style>
-                #formgroup{
-                    display:block;
-                }
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-                .create{
-                    color:blue;
-                    font-family: Bebas; 
-                }
+    <style>
+        #formgroup {
+            display: block;
+        }
 
-                .navbar-brand{
-                    font-family: Bebas; 
-                }
+        .create {
+            color: blue;
+            font-family: Bebas;
+        }
 
-                .card{
-                    display: block;
-                    text-align: center;
+        .navbar-brand {
+            font-family: Bebas;
+        }
 
-                }
+        .card {
+            display: block;
+            text-align: center;
 
-                body{
-                    background-color: lightgray;
-                }
-              
-              form{
-                  padding: 10px;
-              }
+        }
 
+        body {
+            background-color: lightgray;
+        }
 
-            
-        </style>
-    </head>
+        form {
+            padding: 10px;
+        }
+    </style>
+</head>
 
-    <body>
-        <div>{{error}}</div>
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-              <img src="../public/Logo.png" width="50px" height="50px">
-              <a class="navbar-brand" href="#" style="color: whitesmoke">Bluthose</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+        <img src="../public/Logo.png" width="50px" height="50px">
+        <a class="navbar-brand" href="#" style="color: whitesmoke">Bluthose</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
 
             </ul>
             <form action="/post/search" method="get" class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" id="inputSearch" type="text" placeholder="Search" aria-label="Search">
-              <button class="btn btn-dark" id="searchbtn" type="submit">Search</button>
+                <input class="form-control mr-sm-2" id="inputSearch" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-dark" id="searchbtn" type="submit">Search</button>
+                
+                <button id="createPostbtn" >Create a Post</button>
             </form>
+
           </div>
         </nav>
       
@@ -63,30 +62,32 @@
       Title : <input name="postTitle"> <br>
       Post : <input name="text"> <br>
       <input type="submit">
+
     </form>
 
-        
+
     <div class="mx-auto" style="width: 600px;">
-            <div class="card" style="width: 36rem;">
-                
-                
-                {{#each posts}}
+        <div class="card" style="width: 36rem;">
+
+
+            {{#each posts}}
                 <div style="border-bottom: 1px solid #007bff; padding-top: 5px; padding-bottom: 5px;">
                     <a href="/post/{{_id}}" style="text-decoration: none">
                     Title : {{postTitle}}</a> <br>
                     Id : {{_id}} <br>
                     Post : {{text}} <br>
-                    
+
                 </div>
-                {{/each}}
-    
-<!--
+            {{/each}}
+
+            <!--
                 <p class="status">No  Posts  yet... </p>
                 <img src="sadreddit.png" height="300px" class="nopost">
 -->
-                
-            </div>
+
         </div>
-    
+    </div>
+
 </body>
+
 </html>
