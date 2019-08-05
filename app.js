@@ -19,16 +19,18 @@ hbs.registerPartials(path.join(__dirname, '/views/partials'))
 
 mongoose.Promise = global.Promise
 mongoose.connect("mongodb://localhost:27017/bluthose", {
-  useNewUrlParser:true
+    useNewUrlParser: true
 })
 app.set("view engine", "hbs")
 app.use(express.static(__dirname + "/public"))
 
+app.use(express.static('public'))
+
 app.use(session({
-  secret : "secret",
-  name : "secretname",
-  resave: true,
-  saveUninitialized :true
+    secret: "secret",
+    name: "secretname",
+    resave: true,
+    saveUninitialized: true
 }))
 
 app.use(require("./controllers"))

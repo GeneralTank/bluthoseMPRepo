@@ -9,87 +9,89 @@ Model files must be created independent of each other. Deleting one model file w
 const mongoose = require("mongoose")
 
 var postSchema = mongoose.Schema({
-    postTitle:{
+    postTitle: {
         type: String,
-		required: true,
-		minlength: 6
+        required: true,
+        minlength: 6
     },
-    text:{
+    text: {
         type: String,
-		required: true,
+        required: true,
         minlength: 6
     }
 })
 
 var Post = mongoose.model("post", postSchema)
 
-exports.create = function(post){
-  return new Promise(function(resolve, reject){
-    var p = new Post(post)
+exports.create = function (post) {
+    return new Promise(function (resolve, reject) {
+        var p = new Post(post)
 
-    p.save().then((newPost)=>{
-      resolve(newPost)
-    }, (err)=>{
-      reject(err)
+        p.save().then((newPost) => {
+            resolve(newPost)
+        }, (err) => {
+            reject(err)
+        })
     })
-  })
 }
 
-exports.get = function(id){
-  return new Promise(function(resolve, reject){
-    Post.findOne({_id:id}).then((post)=>{
-      console.log(post)
-      resolve(post)
-    }, (err)=>{
-      reject(err)
+exports.get = function (id) {
+    return new Promise(function (resolve, reject) {
+        Post.findOne({
+            _id: id
+        }).then((post) => {
+            console.log(post)
+            resolve(post)
+        }, (err) => {
+            reject(err)
+        })
     })
-  })
 }
 
-exports.getAll = function(){
-  return new Promise(function(resolve, reject){
-    Post.find().then((posts)=>{
-      resolve(posts)
-    }, (err)=>{
-      reject(err)
+exports.getAll = function () {
+    return new Promise(function (resolve, reject) {
+        Post.find().then((posts) => {
+            resolve(posts)
+        }, (err) => {
+            reject(err)
+        })
     })
-  })
 }
 
-exports.edit = function(id, update){
-  return new Promise(function(resolve, reject){
-    Post.findOneAndUpdate({
-      _id : id
-    }, update, {
-      new : true
-    }).then((newPost)=>{
-      resolve(newPost)
-    }, (err)=>{
-      reject(err)
+exports.edit = function (id, update) {
+    return new Promise(function (resolve, reject) {
+        Post.findOneAndUpdate({
+            _id: id
+        }, update, {
+            new: true
+        }).then((newPost) => {
+            resolve(newPost)
+        }, (err) => {
+            reject(err)
+        })
     })
-  })
 }
 
-exports.delete = function(id){
-  return new Promise(function(resolve, reject){
-    Post.remove({
-      _id : id
-    }).then((result)=>{
-      resolve(result)
-    }, (err)=>{
-      reject(err)
+exports.delete = function (id) {
+    return new Promise(function (resolve, reject) {
+        Post.remove({
+            _id: id
+        }).then((result) => {
+            resolve(result)
+        }, (err) => {
+            reject(err)
+        })
     })
-  })
 }
 
-exports.upvote = function(){
-    
-    
-    
+exports.upvote = function () {
+
+
+
 }
 
-exports.downvote = function(){
-    
-    
-    
+exports.downvote = function () {
+
+
+
 }

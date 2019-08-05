@@ -36,3 +36,14 @@ exports.editComment = function(){
     
 
 }
+
+exports.createComment = function(){
+    
+    
+}
+
+exports.makeNestedCom = function(){
+    
+    
+    
+}

@@ -30,12 +30,13 @@
         form {
             padding: 10px;
         }
+
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <img src="../public/Logo.png" width="50px" height="50px">
+        <img src="/Logo.png" width="50px" height="50px" style="padding: 5px;">
         <a class="navbar-brand" href="#" style="color: whitesmoke">Bluthose</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -52,18 +53,20 @@
                 <input class="form-control mr-sm-2" id="inputSearch" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-dark" id="searchbtn" type="submit">Search</button>
                 &nbsp;
-                
+
             </form>
             
-            <button id="createPostbtn" onclick="/logout">Logout</button>
+            Welcome to bluthose, {{user}}!
 
-          </div>
-        </nav>
-      
+            <a href="/"><button id="logoutPostbtn">Logout</button></a>
+
+        </div>
+    </nav>
+
     <form action="/post" method="POST">
-      Title : <input name="postTitle"> <br>
-      Post : <input name="text"> <br>
-      <input type="submit">
+        Title : <input name="postTitle"> <br>
+        Post : <input name="text"> <br>
+        <input type="submit">
 
     </form>
 
@@ -75,9 +78,8 @@
             {{#each posts}}
                 <div style="border-bottom: 1px solid #007bff; padding-top: 5px; padding-bottom: 5px;">
                     <a href="/post/{{_id}}" style="text-decoration: none">
-                    Title : {{postTitle}}</a> <br>
-                    Id : {{_id}} <br>
-                    Post : {{text}} <br>
+                        Title : {{postTitle}}</a> <br>
+                        Post : {{text}} <br>
 
                 </div>
             {{/each}}

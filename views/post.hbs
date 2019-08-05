@@ -1,7 +1,7 @@
 <html>
 
-  <head>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
         #formgroup {
@@ -30,13 +30,14 @@
         form {
             padding: 10px;
         }
-    </style>
-  </head>
 
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <img src="../public/Logo.png" width="50px" height="50px"/>
-        <a class="navbar-brand" href="#" style="color: whitesmoke">Bluthose</a>
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <img src="/Logo.png" width="50px" height="50px" style="padding: 5px;">
+        <a class="navbar-brand" href="#" style="color: whitesmoke"> bluthose</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,17 +52,27 @@
             <form action="/post/search" method="get" class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" id="inputSearch" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-dark" id="searchbtn" type="submit">Search</button>
-                
-                <button id="createPostbtn" >Create a Post</button>
-            </form>
 
-          </div>
-        </nav>
-      
-      Title: {{post.postTitle}} <br>
-      Post: {{post.text}}
-      
-      
-  </body>
+                
+            </form>
+            <a href="/"><button id="logoutPostbtn">Logout</button></a>
+
+        </div>
+    </nav>
+    <div class="mx-auto" style="width: 600px;">
+        <div class="card" style="width: 36rem;">
+            <div style="border-bottom: 1px solid #007bff; padding-top: 5px; padding-bottom: 5px;">
+
+                Title: {{post.postTitle}} <br>
+                Post: {{post.text}}<br>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
 
 </html>
