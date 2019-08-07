@@ -11,7 +11,8 @@ const crypto = require("crypto")
 
 var userSchema = mongoose.Schema({
     username: String,
-    password: String
+    password: String, 
+    // add this in final database posts : [Post]
 })
 
 userSchema.pre("save", function (next) {
