@@ -35,7 +35,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary position-fixed">
         <img src="/Logo.png" width="50px" height="50px" style="padding: 5px;">
         <a class="navbar-brand" href="#" style="color: whitesmoke">Bluthose</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@
                 &nbsp;
 
             </form>
-            
+
             Welcome to bluthose, {{user.username}}!
 
             <a href="/"><button id="logoutPostbtn">Logout</button></a>
@@ -72,24 +72,27 @@
 
 
     <div class="mx-auto" style="width: 600px;">
-        <div class="card" style="width: 36rem;">
 
 
-            {{#each posts}}
-                <div style="border-bottom: 1px solid #007bff; padding-top: 5px; padding-bottom: 5px;">
+
+        {{#each posts}}
+            <div class="card text-left" style="width: 36rem; margin-bottom: 40px; ">
+                <div style=" padding: 10px;">
                     <a href="/post/{{_id}}" style="text-decoration: none">
-                        Title : {{postTitle}}</a> <br>
-                        Post : {{text}} <br>
+                        <h2>{{postTitle}}</h2>
+                        <h5>Posted by: {{user}}</h5>
+                    </a> <br>
+                    <h4>{{text}}</h4> <br>
 
                 </div>
-            {{/each}}
+            </div>
+        {{/each}}
 
-            <!--
+        <!--
                 <p class="status">No  Posts  yet... </p>
                 <img src="sadreddit.png" height="300px" class="nopost">
 -->
 
-        </div>
     </div>
 
 </body>

@@ -19,6 +19,10 @@ var postSchema = mongoose.Schema({
         required: true,
         minlength: 6
     }
+//    originalPoster:{
+//        type: String,
+//        
+//    }
 })
 
 var Post = mongoose.model("post", postSchema)

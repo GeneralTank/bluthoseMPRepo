@@ -10,6 +10,7 @@ const Post = require("../models/post")
 const bodyparser = require("body-parser")
 const auth = require("../middlewares/auth")
 
+
 const app = express()
 
 const urlencoder = bodyparser.urlencoded({
@@ -26,6 +27,7 @@ router.post("/", auth, (req, res)=>{
   var post = {
     postTitle : req.body.postTitle,
     text : req.body.text
+    //user : cookie.username
   }
 
   Post.create(post).then((post)=>{
