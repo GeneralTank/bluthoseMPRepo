@@ -68,14 +68,15 @@ router.post("/login", (req, res) => {
         }
     }, (error) => {
         res.render("home", {
-            error: "some error in logging in: " + error
+            error: "some error in logging in: " + error,
+            user: req.session.user
         })
     })
 })
 
 router.get('/logout', function (req, resp) {
     if (req.session.user === undefined) {
-        resp.redirect('/?login=unlogged');
+        resp.redirect('/');
     } else {
         req.session.destroy(function (err) {
             resp.redirect('/');

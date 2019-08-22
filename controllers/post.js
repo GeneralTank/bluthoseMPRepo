@@ -33,13 +33,15 @@ router.post("/", auth, (req, res)=>{
   Post.create(post).then((post)=>{
     Post.getAll().then((posts)=>{
       res.render("home", {
-        posts
+        posts,
+        user: req.session.user
       })
     })
   },(error)=>{
       console.log(error)
     res.render("home", {
-      error : "some error in posting: " + error
+      error : "some error in posting: " + error,
+        user: req.session.user
     })
   })
 
@@ -55,9 +57,16 @@ router.get("/:id", (req, res)=>{
     })
   },(error)=>{
     res.render("home", {
+        user: req.session.user,
       error
     })
   })
+})
+
+router.get("/createnewpost/newPost", (req, res)=>{
+    res.render("newPost", {
+        user: req.session.user  
+    })
 })
 
 // always remember to export the router
