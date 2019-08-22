@@ -60,7 +60,7 @@ router.post("/login", (req, res) => {
         if (newUser) {
             req.session.user = newUser
             Post.getAll().then((posts) => {
-                res.redirect("/", {
+                res.render("home", {
                     posts,
                     user: req.session.user
                 })
