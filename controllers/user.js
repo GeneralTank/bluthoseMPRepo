@@ -65,6 +65,13 @@ router.post("/login", (req, res) => {
     })
 })
 
+
+//router.get("/user:id", (req, res) => {
+//    User.get(req.params.id).then(())
+//    res.render("user");
+//});
+
+
 router.get('/logout', function (req, resp) {
     if (req.session.user === undefined) {
         resp.redirect('/');
