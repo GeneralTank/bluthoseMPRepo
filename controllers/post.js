@@ -37,7 +37,7 @@ router.post("/", auth, (req, res)=>{
       })
     })
   },(error)=>{
-    res.render("index", {
+    res.render("newPost", {
       error : "some error in posting: " + error
     })
   })

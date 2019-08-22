@@ -44,6 +44,7 @@ exports.authenticate = function (user) {
             username: user.username,
             password: crypto.createHash("md5").update(user.password).digest("hex")
         }).then((user) => {
+            
             console.log("callback user : " + user)
             resolve(user)
         }, (err) => {
