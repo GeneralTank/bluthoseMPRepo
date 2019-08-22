@@ -23,11 +23,11 @@ router.use(urlencoder)
 // localhost:3000/post/
 router.post("/", auth, (req, res)=>{
   console.log("POST /post/")
-
   var post = {
     postTitle : req.body.postTitle,
-    text : req.body.text
-    //user : cookie.username
+    text : req.body.text,
+    originalPosterID : req.session.user._id,
+    originalPosterUsername : req.session.user.username
   }
 
   Post.create(post).then((post)=>{
@@ -37,6 +37,7 @@ router.post("/", auth, (req, res)=>{
       })
     })
   },(error)=>{
+      console.log(error)
     res.render("home", {
       error : "some error in posting: " + error
     })

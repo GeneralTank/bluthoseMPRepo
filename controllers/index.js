@@ -21,12 +21,17 @@ router.use("/user", require("./user"))
 // create the route for the index/home page
 router.get("/", function (req, res) {
     console.log("GET /")
-    Post.getAll().then((posts) => {
-        res.render("index", {
-            posts
+    
+    if (req.session.user == undefined){
+        res.render("index")
+    } else {
+        Post.getAll().then((posts) => {
+            res.render("home", {
+                posts,
+                user: req.session.user
+            })
         })
-    })
-
+    }
 })
 
 module.exports = router

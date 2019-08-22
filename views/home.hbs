@@ -45,7 +45,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
 
             </ul>
@@ -54,7 +54,7 @@
                 <button class="btn btn-dark" id="searchbtn" type="submit">Search</button>
                 &nbsp;
                 <a href="newPost">
-                <button class="btn btn-dark" id="newPostbtn" type="button">+ New Post</button>
+                <button class="btn btn-dark" id="newPostbtn" type="button">New Post</button>
                 </a>
                 &nbsp;
 
@@ -67,12 +67,14 @@
         </div>
     </nav>
 
+<!--
     <form action="/post" method="POST">
         Title : <input name="postTitle"> <br>
         Post : <input name="text"> <br>
         <input type="submit">
 
     </form>
+-->
 
 
     <div class="mx-auto" style="width: 600px;">
@@ -84,7 +86,7 @@
                 <div style=" padding: 10px;">
                     <a href="/post/{{_id}}" style="text-decoration: none">
                         <h2>{{postTitle}}</h2>
-                        <h5>Posted by: {{user}}</h5>
+                        <h5>Posted by: {{originalPosterUsername}}</h5>
                     </a> <br>
                     <h4>{{text}}</h4> <br>
 
@@ -98,6 +100,9 @@
 -->
 
     </div>
+    {{#if error}}
+        <div>{{error}}</div>
+    {{/if}}
 
 </body>
 

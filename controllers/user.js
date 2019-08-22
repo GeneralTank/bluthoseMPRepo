@@ -29,14 +29,18 @@ router.post("/register", (req, res) => {
 
     User.create(user).then((user) => {
         console.log("successful " + user)
-        req.session.username = user.username
-        res.render("index", {
-            user
-        })
+        req.session.user = user
+        Post.getAll().then((posts) => {
+                res.render("home", {
+                    posts,
+                    user
+                })
+            })
     }, (error) => {
-        res.render("home", {
-            error: "some error in registering: " + error
-        })
+//        res.render("index", {
+//            error: "some error in registering: " + error
+//        })
+        res.redirect('/')
     })
 
 })
@@ -54,10 +58,11 @@ router.post("/login", (req, res) => {
     User.authenticate(user).then((newUser) => {
         console.log("authenticate " + newUser)
         if (newUser) {
-            req.session.username = user.username
+            req.session.user = user
             Post.getAll().then((posts) => {
                 res.render("home", {
-                    posts
+                    posts,
+                    user: req.session.user
                 })
             })
         }

@@ -10,8 +10,16 @@ const mongoose = require("mongoose")
 const crypto = require("crypto")
 
 var userSchema = mongoose.Schema({
-    username: String,
-    password: String, 
+    username: {
+        type: String,
+        required: true,
+        lowercase: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    }, 
     // add this in final database posts : [Post]
 })
 
