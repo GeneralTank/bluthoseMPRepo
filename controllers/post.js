@@ -32,17 +32,11 @@ router.post("/", auth, (req, res) => {
 
     Post.create(post).then((post) => {
         Post.getAll().then((posts) => {
-            res.render("home", {
-                posts,
-                user: req.session.user
-            })
+            res.redirect("/")
         })
     }, (error) => {
         console.log(error)
-        res.render("home", {
-            error: "some error in posting: " + error,
-            user: req.session.user
-        })
+        res.redirect("/")
     })
     
 })

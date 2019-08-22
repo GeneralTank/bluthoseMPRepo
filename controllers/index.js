@@ -23,10 +23,13 @@ router.get("/", function (req, res) {
     console.log("GET /")
     
     if (req.session.user == undefined){
-        res.redirect("/")
+        res.render("index")
     } else {
         Post.getAll().then((posts) => {
-            res.render("home")
+            res.render("home", {
+                posts,
+                user: req.session.user
+            })
         })
     }
 })

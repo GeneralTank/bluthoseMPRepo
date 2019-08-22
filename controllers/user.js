@@ -31,10 +31,7 @@ router.post("/register", (req, res) => {
         console.log("successful " + user)
         req.session.user = user
         Post.getAll().then((posts) => {
-                res.render("home", {
-                    posts,
-                    user
-                })
+                res.redirect("/")
             })
     }, (error) => {
 //        res.render("index", {
@@ -60,17 +57,11 @@ router.post("/login", (req, res) => {
         if (newUser) {
             req.session.user = newUser
             Post.getAll().then((posts) => {
-                res.render("home", {
-                    posts,
-                    user: req.session.user
-                })
+                res.redirect("/")
             })
         }
     }, (error) => {
-        res.render("home", {
-            error: "some error in logging in: " + error,
-            user: req.session.user
-        })
+        res.redirect("/")
     })
 })
 
