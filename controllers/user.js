@@ -30,11 +30,11 @@ router.post("/register", (req, res) => {
     User.create(user).then((user) => {
         console.log("successful " + user)
         req.session.username = user.username
-        res.render("home", {
+        res.render("index", {
             user
         })
     }, (error) => {
-        res.render("index", {
+        res.render("home", {
             error: "some error in registering: " + error
         })
     })
