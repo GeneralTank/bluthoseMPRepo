@@ -60,14 +60,14 @@ router.post("/login", (req, res) => {
         if (newUser) {
             req.session.user = newUser
             Post.getAll().then((posts) => {
-                res.render("home", {
+                res.redirect("home", {
                     posts,
                     user: req.session.user
                 })
             })
         }
     }, (error) => {
-        res.render("home", {
+        res.redirect("home", {
             error: "some error in logging in: " + error,
             user: req.session.user
         })
