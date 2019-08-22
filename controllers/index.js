@@ -26,7 +26,7 @@ router.get("/", function (req, res) {
         res.render("index")
     } else {
         Post.getAll().then((posts) => {
-            res.redirect("/")
+            res.render("home")
         })
     }
 })
