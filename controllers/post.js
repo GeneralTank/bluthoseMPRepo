@@ -59,7 +59,7 @@ router.get("/:id", (req, res) => {
 
 router.get("/delete/:id", (req, res) => {
 	Post.delete(req.params.id).then((result) => {
-		res.send(result)
+		res.redirect("/")
 	}, (error) => {
 		res.send(null)
 	})
