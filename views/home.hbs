@@ -91,11 +91,11 @@
                         <h5>Posted by: {{originalPosterUsername}}</h5>
                     </a> <br>
                     <h4>{{text}}</h4> <br>
-                    <form action="/post/deletepost/delete">        
+                            
                     <button>Edit...</button>
-                    <a href="/post/delete/{{this.id}}" onclick="return confirm('Are you sure you want to delete this?')"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
-                    <button>Delete</button>
-                    </form>
+                    <a href="/post/delete/{{this.id}}" onclick="return confirm('Are you sure you want to delete this?')"><button>Delete</button></a>
+                    
+                    
                 </div>
             </div>
         {{/each}}
