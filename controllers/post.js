@@ -32,14 +32,14 @@ router.post("/", auth, (req, res) => {
 
     Post.create(post).then((post) => {
         Post.getAll().then((posts) => {
-            res.redirect("home", {
+            res.render("home", {
                 posts,
                 user: req.session.user
             })
         })
     }, (error) => {
         console.log(error)
-        res.redirect("home", {
+        res.render("home", {
             error: "some error in posting: " + error,
             user: req.session.user
         })
@@ -52,11 +52,11 @@ router.get("/:id", (req, res) => {
     console.log("POST /post/" + req.params.id)
     Post.get(req.params.id).then((post) => {
         console.log(post)
-        res.redirect("post", {
+        res.render("post", {
             post
         })
     }, (error) => {
-        res.redirect("home", {
+        res.render("home", {
             user: req.session.user,
             error
         })
@@ -72,7 +72,7 @@ router.get("/delete/:id", (req, res) => {
 })
 
 router.get("/createnewpost/newPost", (req, res) => {
-    res.redirect("newPost", {
+    res.render("newPost", {
         user: req.session.user
     })
 })
