@@ -65,11 +65,11 @@ router.get("/delete/:id", (req, res) => {
 	})
 })
 
-//router.get("/editpost/:id", (req, res) => {
+//router.get("/edit/:id", (req, res) => {
 //	Post.findOneAndUpdate(req.params.id).then((result) => {
-//		res.render("newPost")
-//	}, (error) => {
 //		res.redirect("/")
+//	}, (error) => {
+//		res.send(null)
 //	})
 //})
 
