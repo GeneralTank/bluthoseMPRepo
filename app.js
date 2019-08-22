@@ -18,7 +18,9 @@ const app = express()
 hbs.registerPartials(path.join(__dirname, '/views/partials'))
 
 mongoose.Promise = global.Promise
-mongoose.connect("mongodb://localhost:27017/bluthose", {
+
+//mongodb://localhost:27017/bluthose
+mongoose.connect("mongodb+srv://admin:passw0rd@bluthosecluster-f1quo.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true
 })
 app.set("view engine", "hbs")

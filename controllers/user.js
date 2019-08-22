@@ -56,9 +56,9 @@ router.post("/login", (req, res) => {
     console.log("post login " + user.password)
 
     User.authenticate(user).then((newUser) => {
-        console.log("authenticate " + newUser)
+        console.log("authenticate " + newUser) // THIS IS WHERE THE ERROR IS
         if (newUser) {
-            req.session.user = user
+            req.session.user = newUser
             Post.getAll().then((posts) => {
                 res.render("home", {
                     posts,

@@ -20,13 +20,16 @@ var postSchema = mongoose.Schema({
         minlength: 6
     },
     originalPosterID:{
-        type: [ mongoose.Schema.Types.ObjectId],
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     },
     originalPosterUsername: {
         type: String,
         required: true
     }
+//    comments: {
+//        
+//    }
 })
 
 var Post = mongoose.model("post", postSchema)

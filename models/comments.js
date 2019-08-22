@@ -3,13 +3,13 @@ const mongoose = require("mongoose")
 var commentSchema = mongoose.Schema({
     _postID: mongoose.SchemaTypes.ObjectId,
 	commentContent: String,
-	commentAuthor: String,
-	commentDateString: String,
-	commentDate: Date,
-	commentScore: Number,
-	nestedComments: [mongoose.SchemaTypes.ObjectId],
-	upvoteComment:[String],
-	downvoteComment:[String]
+	commentAuthor: String
+//	commentDateString: String,
+//	commentDate: Date,
+//	commentScore: Number,
+//	nestedComments: [mongoose.SchemaTypes.ObjectId],
+//	upvoteComment:[String],
+//	downvoteComment:[String]
 })
 
 var Comment = mongoose.model("commentList",commentSchema)
@@ -26,6 +26,11 @@ exports.get = function (id) {
 	})
 }
 
+exports.createComment = function(){
+    
+    
+}
+
 exports.deleteComment = function(){
     
     
@@ -37,13 +42,10 @@ exports.editComment = function(){
 
 }
 
-exports.createComment = function(){
-    
-    
-}
 
-exports.makeNestedCom = function(){
-    
-    
-    
-}
+
+//exports.makeNestedCom = function(){
+//    
+//    
+//    
+//}

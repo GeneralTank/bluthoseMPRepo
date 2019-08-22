@@ -37,7 +37,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <img src="/Logo.png" width="50px" height="50px" style="padding: 5px;">
-        <a class="navbar-brand" href="#" style="color: whitesmoke"> bluthose</a>
+        <a class="navbar-brand" href="#" style="color: whitesmoke">Bluthose</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,30 +45,39 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" onclick="window.history.back();" style="cursor: pointer;" onmouseover="text-color: lightgray;">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
 
             </ul>
             <form action="/post/search" method="get" class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" id="inputSearch" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-dark" id="searchbtn" type="submit">Search</button>
+                &nbsp;
+                <a href="/post/createnewpost/newPost">
+                    <button class="btn btn-dark" id="newPostbtn" type="button">New Post</button>
+                </a>
+                &nbsp;
 
-                
             </form>
-            <a href="/"><button id="logoutPostbtn">Logout</button></a>
+
+            Welcome to bluthose, {{user.username}}!
+
+            &nbsp;
+
+            <a href="/user/logout"><button id="logoutPostbtn">Logout</button></a>
 
         </div>
     </nav>
     <div class="mx-auto" style="width: 600px; margin-top: 15px;">
         <div class="card text-left" style="width: 36rem; padding: 15px">
-<!--            <div style="border-bottom: 1px solid #007bff; padding-top: 5px; padding-bottom: 15px;">-->
+            <!--            <div style="border-bottom: 1px solid #007bff; padding-top: 5px; padding-bottom: 15px;">-->
 
-                <h2>{{post.postTitle}}</h2>  <br>
-                <h4>Posted By: {{post.originalPosterUsername}}</h4><br>
-                <h4>{{post.text}}</h4><br>
+            <h2>{{post.postTitle}}</h2> <br>
+            <h4>Posted By: {{post.originalPosterUsername}}</h4><br>
+            <h4>{{post.text}}</h4><br>
 
-            </div>
-<!--        </div>-->
+        </div>
+        <!--        </div>-->
     </div>
 
 

@@ -54,7 +54,7 @@
                 <button class="btn btn-dark" id="searchbtn" type="submit">Search</button>
                 &nbsp;
                 <a href="/post/createnewpost/newPost">
-                <button class="btn btn-dark" id="newPostbtn" type="button">New Post</button>
+                    <button class="btn btn-light" id="newPostbtn" type="button">New Post</button>
                 </a>
                 &nbsp;
 
@@ -62,12 +62,14 @@
 
             Welcome to bluthose, {{user.username}}!
 
-            <a href="/user/logout"><button id="logoutPostbtn">Logout</button></a>
+            &nbsp;
+
+            <a href="/user/logout"><button class="btn btn-dark" id="logoutPostbtn">Logout</button></a>
 
         </div>
     </nav>
 
-<!--
+    <!--
     <form action="/post" method="POST">
         Title : <input name="postTitle"> <br>
         Post : <input name="text"> <br>
@@ -82,14 +84,16 @@
 
 
         {{#each posts}}
-            <div class="card text-left" style="width: 36rem; margin-bottom: 40px; ">
+            <div class="card text-left" style="width: 36rem; margin-top: 40px; ">
                 <div style=" padding: 10px;">
                     <a href="/post/{{_id}}" style="text-decoration: none">
                         <h2>{{postTitle}}</h2>
                         <h5>Posted by: {{originalPosterUsername}}</h5>
                     </a> <br>
                     <h4>{{text}}</h4> <br>
-
+                    <form action="/post/deletepost/delete">        
+                    <button>Delete</button>
+                    </form>
                 </div>
             </div>
         {{/each}}
