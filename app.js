@@ -11,6 +11,7 @@ const bodyparser = require("body-parser")
 const hbs = require("hbs")
 const mongoose = require("mongoose")
 const session = require("express-session")
+const PORT = process.env.PORT || 3000
 const path = require("path")
 
 const app = express()
@@ -37,4 +38,4 @@ app.use(session({
 
 app.use(require("./controllers"))
 
-app.listen(3000)
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
